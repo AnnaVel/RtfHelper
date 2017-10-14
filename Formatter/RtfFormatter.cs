@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -10,19 +11,29 @@ namespace RtfHelper.Formatter
         {
             StringBuilder newText = new StringBuilder(allText.Length);
 
-            newText.Append(allText[0]);
+            int indentLevel = 0;
+            string indent = "    ";
 
-            for (int i = 1; i < allText.Length; i++)
+            for (int i = 0; i < allText.Length; i++)
             {
                 if (allText[i] == '{')
                 {
                     newText.AppendLine();
+
+                    for (int u = 0; u < indentLevel; u++)
+                    {
+                        newText.Append(indent);
+                    }
+
+                    indentLevel++;
                 }
 
-                if (Environment.NewLine.All(c => allText[i] != c))
+                if (allText[i] == '}')
                 {
-                    newText.Append(allText[i]);
+                    indentLevel--;
                 }
+
+                newText.Append(allText[i]);
             }
 
             return newText.ToString();
