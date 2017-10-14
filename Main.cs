@@ -31,7 +31,7 @@ namespace Kbg.NppPluginNET
 
         private static void SetCommands()
         {
-            PluginBase.SetCommand(0, "MyMenuCommand", myMenuFunction, new ShortcutKey(false, false, false, Keys.None));
+            PluginBase.SetCommand(0, "Format RTF", FormatRtf, new ShortcutKey(true, true, true, Keys.B));
         }
 
         internal static void SetToolBarIcon()
@@ -42,7 +42,7 @@ namespace Kbg.NppPluginNET
         {
         }
 
-        private static void myMenuFunction()
+        private static void FormatRtf()
         {
             IntPtr currentScint = PluginBase.GetCurrentScintilla();
             ScintillaGateway scintillaGateway = new ScintillaGateway(currentScint);
