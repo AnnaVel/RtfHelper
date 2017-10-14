@@ -11,29 +11,19 @@ namespace RtfHelper.Formatter
         {
             StringBuilder newText = new StringBuilder(allText.Length);
 
-            int indentLevel = 0;
-            string indent = "    ";
+            newText.Append(allText[0]);
 
-            for (int i = 0; i < allText.Length; i++)
+            for (int i = 1; i < allText.Length; i++)
             {
                 if (allText[i] == '{')
                 {
                     newText.AppendLine();
-
-                    for (int u = 0; u < indentLevel; u++)
-                    {
-                        newText.Append(indent);
-                    }
-
-                    indentLevel++;
                 }
 
-                if (allText[i] == '}')
+                if (Environment.NewLine.All(c => allText[i] != c))
                 {
-                    indentLevel--;
+                    newText.Append(allText[i]);
                 }
-
-                newText.Append(allText[i]);
             }
 
             return newText.ToString();
