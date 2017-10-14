@@ -1,8 +1,0 @@
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\bin\Debug\RtfHelper.dll
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\bin\Debug\RtfHelper.pdb
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\Kbg.NppPluginNET.frmMyDlg.resources
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\RtfHelper.Properties.Resources.resources
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\RtfHelper.csproj.GenerateResource.Cache
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\RtfHelper.dll
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\RtfHelper.pdb
-C:\Users\velcheva\GitHub\RtfHelper\RtfHelper\obj\Debug\RtfHelper.csprojResolveAssemblyReference.cache
