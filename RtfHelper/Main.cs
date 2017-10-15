@@ -52,7 +52,7 @@ namespace Kbg.NppPluginNET
             string newText = rtfFormatter.GetFormattedText(allText);
 
             scintillaGateway.SelectAll();
-            scintillaGateway.ReplaceSel(newText.ToString());
+            scintillaGateway.ReplaceSel(newText);
         }
     }
 }
