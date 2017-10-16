@@ -46,13 +46,22 @@ namespace Kbg.NppPluginNET
         {
             IntPtr currentScint = PluginBase.GetCurrentScintilla();
             ScintillaGateway scintillaGateway = new ScintillaGateway(currentScint);
-            int length = scintillaGateway.GetLength();
-            string allText = scintillaGateway.GetText(length + 1);
+
+            string allText = scintillaGateway.GetAllText();
+
+            if (!IsTextRtf(allText))
+            {
+                return;
+            }
 
             string newText = rtfFormatter.GetFormattedText(allText);
 
-            scintillaGateway.SelectAll();
-            scintillaGateway.ReplaceSel(newText);
+            scintillaGateway.SetText(newText);
+        }
+
+        private static bool IsTextRtf(string allText)
+        {
+            return allText.StartsWith(@"{\rtf");
         }
     }
 }
