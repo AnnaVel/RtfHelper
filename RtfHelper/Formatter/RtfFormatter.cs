@@ -82,7 +82,8 @@ namespace RtfHelper.Formatter
             bool nextCharIsNewLine = this.CharIsNewLine(this.PeekNext(input, currentIndex));
 
             if (nextCharIsOpeningBracket || 
-                (previousMeaningfulCharacterIsClosingBracket && !nextCharIsClosingBracket && !nextCharIsNewLine))
+                (previousMeaningfulCharacterIsClosingBracket &&
+                !nextCharIsClosingBracket && !nextCharIsNewLine))
             {
                 this.processNext = this.ProcessBlockStart;
             }
@@ -168,11 +169,23 @@ namespace RtfHelper.Formatter
             }
 
             currentIndex--;
+
+            if (currentIndex <= 0)
+            {
+                return false;
+            }
+
             currentChar = input[currentIndex];
 
             while(this.IsAllowedInRtfCommand(currentChar))
             {
                 currentIndex--;
+
+                if (currentIndex <= 0)
+                {
+                    return false;
+                }
+
                 currentChar = input[currentIndex];
             }
 

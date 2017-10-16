@@ -143,6 +143,15 @@ eges habuere; libertatem et consulatum L. Brutus instituit. dictaturae ad tempus
         }
 
         [TestMethod]
+        public void NonRtfText()
+        {
+            RtfFormatter formatter = new RtfFormatter();
+
+            string input = @"fsdfd";
+            string output = formatter.GetFormattedText(input);
+        }
+
+        [TestMethod]
         public void LongRtf()
         {
             RtfFormatter formatter = new RtfFormatter();
