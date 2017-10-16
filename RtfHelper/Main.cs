@@ -56,7 +56,10 @@ namespace Kbg.NppPluginNET
 
             string newText = rtfFormatter.GetFormattedText(allText);
 
-            scintillaGateway.SetText(newText);
+            if (allText != newText)
+            {
+                scintillaGateway.SetText(newText);
+            }
         }
 
         private static bool IsTextRtf(string allText)
