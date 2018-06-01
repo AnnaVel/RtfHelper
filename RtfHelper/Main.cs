@@ -31,7 +31,7 @@ namespace Kbg.NppPluginNET
 
         private static void SetCommands()
         {
-            PluginBase.SetCommand(0, "Format RTF", FormatRtf, new ShortcutKey(true, true, true, Keys.B));
+            PluginBase.SetCommand(0, "Format RTF", FormatRtf, new ShortcutKey(true, true, true, Keys.V));
         }
 
         internal static void SetToolBarIcon()
