@@ -143,6 +143,25 @@ eges habuere; libertatem et consulatum L. Brutus instituit. dictaturae ad tempus
         }
 
         [TestMethod]
+        public void EscapedBracketsAreNotTreatedAsBlockBegining()
+        {
+            RtfFormatter formatter = new RtfFormatter();
+
+            string input = @"{\rtf{\pard\listtext \{0\}.}\par}}";
+            string expectedOutput = @"{\rtf
+{\pard\listtext \{0\}.}
+\par}}";
+
+            string output = formatter.GetFormattedText(input);
+
+            Assert.AreEqual(expectedOutput, output);
+
+            output = formatter.GetFormattedText(input);
+
+            Assert.AreEqual(expectedOutput, output);
+        }
+
+        [TestMethod]
         public void NonRtfText()
         {
             RtfFormatter formatter = new RtfFormatter();
