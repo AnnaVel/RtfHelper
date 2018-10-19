@@ -40,13 +40,18 @@ namespace RtfHelper.Formatter
 
             this.AppendAndMove(output, input[this.index]);
 
+            bool thisCharIsEscapeSymbol = input[currentIndex] == '\\';
+            bool prevCharIsEscapeSymbol = this.LookAtPrevious(input, currentIndex) == '\\';
+
             bool nextCharIsOpeningBracket = this.PeekNext(input, currentIndex) == '{';
+            bool nextCharIsValidOpeningBracket = nextCharIsOpeningBracket && !thisCharIsEscapeSymbol;
             bool thisCharIsClosingBracket = input[currentIndex] == '}';
+            bool thisCharIsValidClosingBracket = thisCharIsClosingBracket && !prevCharIsEscapeSymbol;
             bool nextCharIsClosingBracket = this.PeekNext(input, currentIndex) == '}';
             bool nextCharIsNewLine = this.CharIsNewLine(this.PeekNext(input, currentIndex));
             bool thisCharIsPartOfCommand = this.CharIsPartOfRtfCommand(input, currentIndex);
             
-            if (nextCharIsOpeningBracket)
+            if (nextCharIsValidOpeningBracket)
             {
                 this.processNext = this.ProcessBlockStart;
             }
@@ -58,7 +63,7 @@ namespace RtfHelper.Formatter
             {
                 this.processNext = this.ProcessNewLine;
             }
-            else if(thisCharIsClosingBracket && !nextCharIsClosingBracket)
+            else if(thisCharIsValidClosingBracket && !nextCharIsClosingBracket)
             {
                 this.processNext = this.ProcessBlockStart;
             }
