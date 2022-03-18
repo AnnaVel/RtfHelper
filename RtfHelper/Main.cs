@@ -9,7 +9,7 @@ namespace Kbg.NppPluginNET
 {
     class Main
     {
-        public static string Name = "RtfHelper";
+        public static string PluginName = "RtfHelper";
         private static RtfFormatter rtfFormatter = new RtfFormatter();
 
         public static void OnNotification(ScNotification notification)
@@ -24,7 +24,7 @@ namespace Kbg.NppPluginNET
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint) NppMsg.NPPM_GETPLUGINSCONFIGDIR, Win32.MAX_PATH, sbIniFilePath);
             iniFilePath = sbIniFilePath.ToString();
             if (!Directory.Exists(iniFilePath)) Directory.CreateDirectory(iniFilePath);
-            iniFilePath = Path.Combine(iniFilePath, Name + ".ini");
+            iniFilePath = Path.Combine(iniFilePath, PluginName + ".ini");
 
             SetCommands();
         }

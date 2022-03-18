@@ -26,7 +26,7 @@ namespace Kbg.NppPluginNET
                     endIndex = length;
                 }
 
-                scintillaGateway.SetTargetRange(new Position(startIndex), new Position(endIndex));
+                scintillaGateway.SetTargetRange(startIndex, endIndex);
                 allText += scintillaGateway.GetTargetText();
             }
 

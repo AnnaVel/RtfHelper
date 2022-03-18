@@ -175,7 +175,7 @@ eges habuere; libertatem et consulatum L. Brutus instituit. dictaturae ad tempus
         {
             RtfFormatter formatter = new RtfFormatter();
 
-            Stream stream = File.OpenRead(@"..\..\LongRtf.txt");
+            Stream stream = File.OpenRead(@"..\..\..\LongRtf.txt");
             string input = "";
 
             using (stream)
